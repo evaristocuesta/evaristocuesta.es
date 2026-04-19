@@ -45,7 +45,19 @@ body {
 
 a {
     color: var(--bs-link-color);
+    text-decoration: none;
+}
+
+a:hover {
     text-decoration: underline;
+}
+
+.menu {
+    border-bottom: 1px solid;
+}
+
+.submenu {
+    padding-left: 30px;
 }
 
 #mainNav {
