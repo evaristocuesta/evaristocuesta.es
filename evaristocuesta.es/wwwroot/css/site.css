@@ -62,28 +62,40 @@ a:hover {
 
 #mainNav {
     min-height: 3.5rem;
-    background-color: #fff;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
     #mainNav .navbar-toggler {
-        font-size: 80%;
+        font-size: 100%;
         padding: 0.75rem;
-        color: var(--bs-teal);
-        border: 1px solid var(--bs-teal);
+        color: white;
+        border: 0px solid white;
     }
 
         #mainNav .navbar-toggler:focus {
             outline: none;
+            border: 0px solid black;
+            box-shadow: none;
+        }
+
+        #mainNav .navbar-toggler:active {
+            outline: none;
+            border: 0px solid black;
+            box-shadow: none;
         }
 
     #mainNav .navbar-brand {
-        color: #000;
+        color: #fff;
         font-weight: 700;
         padding: 0.9rem 0;
     }
 
+    #mainNav .nav-link {
+        color: #fff;
+    }
+
     #mainNav .navbar-nav .nav-item:hover {
-        color: fade(#fff, 80%);
+        color: white;
         outline: none;
         background-color: transparent;
     }
@@ -93,14 +105,51 @@ a:hover {
         background-color: transparent;
     }
 
+    #mainNav .navbar-collapse.show,
+    #mainNav .navbar-collapse.collapsing {
+        background-color: #fff;
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 1rem;
+        right: 1rem;
+        width: calc(100% - 2rem);
+        border-radius: 0.5rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+        #mainNav .navbar-collapse.show .nav-link,
+        #mainNav .navbar-collapse.collapsing .nav-link {
+            color: #000;
+        }
+
+        #mainNav .navbar-collapse.show .dropdown-item,
+        #mainNav .navbar-collapse.collapsing .dropdown-item {
+            color: #000;
+        }
+
+    #mainNav .dropdown-menu {
+        border: none;
+    }
+
 @media (min-width: 992px) {
     #mainNav {
         padding-top: 0;
         padding-bottom: 0;
         border-bottom: none;
-        background-color: transparent;
-        transition: background-color 0.3s ease-in-out;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+        transition: background 0.3s ease-in-out;
     }
+
+        #mainNav .navbar-collapse.show,
+        #mainNav .navbar-collapse.collapsing {
+            position: static;
+            width: auto;
+            background-color: transparent;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
 
         #mainNav .navbar-brand {
             padding: 0.5rem 0;
@@ -122,7 +171,7 @@ a:hover {
             }
 
         #mainNav.navbar-shrink {
-            background-color: #fff;
+            background: #fff;
         }
 
             #mainNav.navbar-shrink .navbar-brand {
