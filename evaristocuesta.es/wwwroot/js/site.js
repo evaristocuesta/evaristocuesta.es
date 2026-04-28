@@ -1,8 +1,30 @@
 ﻿// Change navbar-toggler icon when opened/closed
 document.addEventListener('DOMContentLoaded', function () {
     const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarBrand = document.querySelector('.navbar-brand');
+    const navbarCollapse = document.querySelector('#navbarResponsive');
 
-    if (navbarToggler) {
+    if (navbarToggler && navbarCollapse) {
+        // Listen for navbar collapse events
+        navbarCollapse.addEventListener('show.bs.collapse', function () {
+            // When menu starts opening, change brand and toggler to black
+            if (navbarBrand) {
+                navbarBrand.style.color = '#000';
+            }
+            navbarToggler.style.color = '#000';
+        });
+
+        navbarCollapse.addEventListener('hide.bs.collapse', function () {
+            // When menu starts closing, revert to white (unless navbar is shrunk)
+            const mainNav = document.getElementById('mainNav');
+            if (mainNav && !mainNav.classList.contains('navbar-shrink')) {
+                if (navbarBrand) {
+                    navbarBrand.style.color = '#fff';
+                }
+                navbarToggler.style.color = '#fff';
+            }
+        });
+
         navbarToggler.addEventListener('click', function () {
             // Little delay needed for Bootstrap to update aria-expanded
             setTimeout(() => {
