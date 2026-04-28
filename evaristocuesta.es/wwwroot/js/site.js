@@ -19,6 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Navbar shrink functionality
+    const mainNav = document.getElementById('mainNav');
+
+    function navbarShrink() {
+        if (!mainNav) {
+            return;
+        }
+        if (window.scrollY === 0) {
+            mainNav.classList.remove('navbar-shrink');
+        } else {
+            mainNav.classList.add('navbar-shrink');
+        }
+    }
+
+    // Shrink the navbar when page is scrolled
+    navbarShrink();
+    window.addEventListener('scroll', navbarShrink);
+
     // Back to top button functionality
     const toTopButton = document.getElementById('toTop');
 
