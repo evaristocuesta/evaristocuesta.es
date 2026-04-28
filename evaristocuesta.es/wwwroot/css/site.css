@@ -72,12 +72,13 @@ a:hover {
 
 #mainNav {
     min-height: 3.5rem;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-    transition: background-color 0.3s ease-in-out;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: background 0.3s ease-in-out;
 }
 
     #mainNav.navbar-shrink {
         background-color: #fff;
+        background-image: none;
     }
 
         #mainNav.navbar-shrink .navbar-brand {
@@ -175,6 +176,20 @@ a:hover {
     #mainNav .dropdown-menu {
         border: none;
     }
+
+@media (max-width: 991px) {
+    #mainNav {
+        min-height: 3rem;
+    }
+
+    #mainNav .navbar-brand {
+        padding: 0.2rem 0;
+    }
+
+    #mainNav .navbar-toggler {
+        padding: 0rem;
+    }
+}
 
 @media (min-width: 992px) {
     #mainNav {
