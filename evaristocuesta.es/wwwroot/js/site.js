@@ -18,4 +18,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 10);
         });
     }
+
+    // Back to top button functionality
+    const toTopButton = document.getElementById('toTop');
+
+    if (toTopButton) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                toTopButton.classList.add('show');
+            } else {
+                toTopButton.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        toTopButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

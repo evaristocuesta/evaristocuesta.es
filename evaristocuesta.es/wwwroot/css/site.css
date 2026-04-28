@@ -376,4 +376,25 @@ a:hover {
 .footer {
     padding: 5rem 0;
 }
+
+footer {
+    text-align: right;
+}
+
+#toTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1000;
+    font-size: 2.5rem;
+    padding: 0rem 0.6rem;
+}
+
+#toTop.show {
+    opacity: 1;
+    visibility: visible;
+}
 /*# sourceMappingURL=styles.css.map */
