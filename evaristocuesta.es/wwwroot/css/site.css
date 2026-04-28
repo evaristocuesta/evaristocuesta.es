@@ -116,7 +116,8 @@ a:hover {
 
     #mainNav .navbar-brand {
         color: #fff;
-        font-weight: 400;
+        font-weight: 200;
+        letter-spacing: 0.5rem;
         padding: 0.9rem 0;
         position: relative;
         z-index: 10000;
@@ -124,6 +125,7 @@ a:hover {
 
     #mainNav .nav-link {
         color: #fff;
+        font-weight: 200;
     }
 
     #mainNav .navbar-nav .nav-item:hover {
@@ -164,7 +166,7 @@ a:hover {
         #mainNav .navbar-collapse.show .dropdown-item,
         #mainNav .navbar-collapse.collapsing .dropdown-item {
             color: #000;
-            padding: 1rem;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
             font-size: 1.1rem;
         }
 
@@ -175,6 +177,10 @@ a:hover {
 
     #mainNav .dropdown-menu {
         border: none;
+    }
+
+    #mainNav .dropdown-item {
+        font-weight: 200;
     }
 
 @media (max-width: 991px) {
