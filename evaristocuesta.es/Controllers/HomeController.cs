@@ -12,8 +12,20 @@ public class HomeController : Controller
         var page = new PageViewModel
         {
             Title = "Evaristo Cuesta Fotografía",
-            Description = "Esto va de fotos",
-            Keywords = "Evaristo Cuesta, fotografía, fotos, arte"
+            Description = "Evaristo Cuesta Fotógrafo autodidacta de Sevilla que trabaja diferentes campos dcomo retratos, reportajes de boda, reportajes de conciertos, books de moda, paisajes, fotografía nocturna, fotografía urbana y fotografía de autor.",
+            Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla"
+        };
+
+        return View(page);
+    }
+
+    public IActionResult Contacto()
+    {
+        var page = new PageViewModel
+        {
+            Title = "Evaristo Cuesta Fotografía - Contacto",
+            Description = "Evaristo Cuesta Fotógrafo autodidacta de Sevilla. Página de contacto.",
+            Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla,contacto"
         };
         return View(page);
     }
