@@ -206,6 +206,15 @@ a:hover {
         transition: background 0.3s ease-in-out;
     }
 
+    /* Ocultar el dropdown en pantallas grandes */
+    #mainNav .dropdown-toggle::after {
+        display: none;
+    }
+
+    #mainNav .dropdown-menu {
+        display: none !important;
+    }
+
         #mainNav .navbar-collapse.show,
         #mainNav .navbar-collapse.collapsing {
             position: static;

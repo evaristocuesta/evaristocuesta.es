@@ -81,4 +81,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // Disable dropdown behavior on desktop (>=992px) - allow direct navigation
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+    if (dropdownToggle) {
+        function handleDropdownClick(e) {
+            // If screen is desktop size (>=992px), prevent dropdown and navigate
+            if (window.innerWidth >= 992) {
+                e.stopPropagation();
+                // Let the link work normally (navigate to href)
+                return true;
+            }
+        }
+
+        dropdownToggle.addEventListener('click', handleDropdownClick);
+
+        // Re-check on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 992) {
+                // Remove Bootstrap's dropdown behavior on desktop
+                dropdownToggle.removeAttribute('data-bs-toggle');
+            } else {
+                // Re-enable dropdown on mobile
+                dropdownToggle.setAttribute('data-bs-toggle', 'dropdown');
+            }
+        });
+
+        // Initial check
+        if (window.innerWidth >= 992) {
+            dropdownToggle.removeAttribute('data-bs-toggle');
+        }
+    }
 });
