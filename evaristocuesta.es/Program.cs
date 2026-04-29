@@ -37,7 +37,11 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "VentaFotografias" })
     .WithStaticAssets();
 
-
+app.MapControllerRoute(
+    name: "galeria-fotos",
+    pattern: "galeria-fotos",
+    defaults: new { controller = "Home", action = "GaleriaFotos" })
+    .WithStaticAssets();
 
 
 app.Run();

@@ -42,6 +42,17 @@ public class HomeController : Controller
         return View(page);
     }
 
+    public IActionResult GaleriaFotos()
+    {
+        var page = new PageViewModel
+        {
+            Title = "Evaristo Cuesta - Galería de fotos",
+            Description = "Evaristo Cuesta - Galería de fotos. Muestras de fotos de Evaristo Cuesta",
+            Keywords = "evaristo,evaristo cuesta,galería,fotos,galería fotos, galería de fotos"
+        };
+        return View(page);
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
