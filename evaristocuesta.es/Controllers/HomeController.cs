@@ -1,5 +1,5 @@
 using evaristocuesta.es.Models;
-using evaristocuesta.es.ViewModels;
+using evaristocuesta.es.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -28,6 +28,7 @@ public class HomeController : Controller
             Description = "Evaristo Cuesta Fotógrafo autodidacta de Sevilla. Página de contacto.",
             Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla,contacto"
         };
+
         return View(page);
     }
 
@@ -39,17 +40,37 @@ public class HomeController : Controller
             Description = "Evaristo Cuesta Fotografía Fotos Venta de Fotografías de autor",
             Keywords = "fotografía,fotógrafo,evaristo,evaristo cuesta,fotografías,fotografías autor,fotógrafos,fotos,foto,venta,ventas,venta fotografía,venta fotografías,venta fotografía autor"
         };
+
         return View(page);
     }
 
     public IActionResult GaleriaFotos()
     {
-        var page = new PageViewModel
+        var galleryItems = new[]
+        {
+            new GalleryItem() { Image = "paisajes-naturaleza.jpg", Title = "Paisajes de Naturaleza", Url = "paisajes-naturaleza", Alt = "Fotografía de naturaleza y paisajes" },
+            new GalleryItem() { Image = "fotografia-nocturna.jpg", Title = "Fotografía Nocturna", Url = "fotografia-nocturna", Alt = "Fotografía nocturna larga exposición" },
+            new GalleryItem() { Image = "fotografia-urbana.jpg", Title = "Fotografía Urbana", Url = "paisajes-urbanos", Alt = "Fotografía urbana y paisajes urbanos" },
+            new GalleryItem() { Image = "retratos-books.jpg", Title = "Retratos y Books", Url = "retratos-books-moda", Alt = "Retratos books moda fotografía" },
+            new GalleryItem() { Image = "reportaje-boda.jpg", Title = "Reportajes de Boda", Url = "reportaje-bodas", Alt = "Reportajes de boda fotografía" },
+            new GalleryItem() { Image = "fotografia-conciertos.jpg", Title = "Reportajes de Conciertos", Url = "conciertos", Alt = "Fotografía de conciertos música" },
+            new GalleryItem() { Image = "reportaje-embarazadas.jpg", Title = "Reportajes de Embarazos", Url = "reportaje-fotos-embarazadas", Alt = "Reportaje embarazadas fotografía" }
+        };
+
+        var page = new PhotoGalleryViewModel
         {
             Title = "Evaristo Cuesta - Galería de fotos",
             Description = "Evaristo Cuesta - Galería de fotos. Muestras de fotos de Evaristo Cuesta",
-            Keywords = "evaristo,evaristo cuesta,galería,fotos,galería fotos, galería de fotos"
+            Keywords = "evaristo,evaristo cuesta,galería,fotos,galería fotos, galería de fotos",
+            GaleriaItems = galleryItems
         };
+
+        return View(page);
+    }
+
+    public IActionResult GaleriaTipoFotos(string gallery)
+    {
+        var page = new PhotosService().GetGalleryInfo(gallery);
         return View(page);
     }
 

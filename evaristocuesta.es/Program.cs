@@ -43,5 +43,11 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "GaleriaFotos" })
     .WithStaticAssets();
 
+app.MapControllerRoute(
+    name: "paisajes-naturaleza",
+    pattern: "paisajes-naturaleza",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "paisajes-naturaleza" })
+    .WithStaticAssets();
 
-app.Run();
+
+await app.RunAsync();
