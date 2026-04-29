@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
 :root {
+    /* Typography */
     --base-letter-spacing: 0.0625em;
     --font-family-special: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* Color Palette */
     --bs-teal: #64a19d;
     --bs-teal-dark: #4b7976;
     --bs-red: #a16468;
@@ -10,7 +16,10 @@
     --bs-yellow: #e4c662;
     --bs-green: #67c29c;
     --bs-cyan: #1cabc4;
+
+    /* Bootstrap Theme Colors */
     --bs-primary: var(--bs-teal);
+    --bs-primary-rgb: 100, 161, 157;
     --bs-secondary: --bs-purple;
     --bs-success: --bs-green;
     --bs-info: --bs-cyan;
@@ -21,21 +30,22 @@
     --bs-link-color: var(--bs-teal-dark);
     --bs-link-color-rgb: 13, 110, 253;
 
-    .btn-primary {
-        --bs-btn-bg: var(--bs-teal);
-        --bs-btn-border-color: var(--bs-teal);
-        --bs-btn-hover-bg: #558985;
-        --bs-btn-hover-border-color: #50817e;
-        --bs-btn-focus-shadow-rgb: 123, 175, 172;
-        --bs-btn-active-bg: #50817e;
-        --bs-btn-active-border-color: #4b7976;
-        --bs-btn-disabled-bg: #64a19d;
-        --bs-btn-disabled-border-color: #64a19d;
-    }
-
-    --bs-primary-rgb: 100, 161, 157;
+    /* Button Primary Variables */
+    --bs-btn-bg: var(--bs-teal);
+    --bs-btn-border-color: var(--bs-teal);
+    --bs-btn-hover-bg: #558985;
+    --bs-btn-hover-border-color: #50817e;
+    --bs-btn-focus-shadow-rgb: 123, 175, 172;
+    --bs-btn-active-bg: #50817e;
+    --bs-btn-active-border-color: #4b7976;
+    --bs-btn-disabled-bg: #64a19d;
+    --bs-btn-disabled-border-color: #64a19d;
 }
 
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 html {
     scroll-padding-top: calc(4.5rem - 1px);
 }
@@ -44,10 +54,17 @@ body {
     letter-spacing: var(--base-letter-spacing);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight:400;
+body.no-hero {
+    padding-top: 3.5rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
 a {
     color: var(--bs-link-color);
     text-decoration: none;
@@ -66,6 +83,9 @@ a:hover {
     text-decoration: none;
 }
 
+/* ============================================
+   MENU & SUBMENU
+   ============================================ */
 .menu {
     border-bottom: 1px solid;
 }
@@ -74,209 +94,176 @@ a:hover {
     padding-left: 30px;
 }
 
+
+/* ============================================
+   NAVBAR - BASE STYLES
+   ============================================ */
 #mainNav {
     min-height: 3.5rem;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
     transition: background 0.3s ease-in-out;
 }
 
-    #mainNav.navbar-shrink {
-        background-color: #fff;
-        background-image: none;
-    }
-
-        #mainNav.navbar-shrink .navbar-brand {
-            color: #000;
-        }
-
-        #mainNav.navbar-shrink .nav-link {
-            color: #000;
-        }
-
-        #mainNav.navbar-shrink .navbar-toggler {
-            color: #000;
-        }
-
-    #mainNav .navbar-toggler {
-        font-size: 150%;
-        padding: 0.75rem;
-        color: white;
-        border: 0px solid white;
-        position: relative;
-        z-index: 10000;
-    }
-
-        #mainNav .navbar-toggler:focus {
-            outline: none;
-            border: 0px solid black;
-            box-shadow: none;
-        }
-
-        #mainNav .navbar-toggler:active {
-            outline: none;
-            border: 0px solid black;
-            box-shadow: none;
-        }
-
-    #mainNav .navbar-brand {
-        color: #fff;
-        font-weight: 200;
-        letter-spacing: 0.5rem;
-        padding: 0.9rem 0;
-        position: relative;
-        z-index: 10000;
-    }
-
-    #mainNav .nav-link {
-        color: #fff;
-        font-weight: 200;
-    }
-
-    #mainNav .navbar-nav .nav-item:hover {
-        color: white;
-        outline: none;
-        background-color: transparent;
-    }
-
-    #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
-        outline: none;
-        background-color: transparent;
-    }
-
-    #mainNav .navbar-collapse.show,
-    #mainNav .navbar-collapse.collapsing {
-        background-color: #fff;
-        padding: 1rem;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-        overflow-y: auto;
-        z-index: 9999;
-    }
-
-        #mainNav .navbar-collapse.show .nav-link,
-        #mainNav .navbar-collapse.collapsing .nav-link {
-            color: #000;
-            padding: 1rem;
-            font-size: 1.25rem;
-        }
-
-        #mainNav .navbar-collapse.show .dropdown-item,
-        #mainNav .navbar-collapse.collapsing .dropdown-item {
-            color: #000;
-            padding: 0.5rem 1rem 0.5rem 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        #mainNav .navbar-collapse.show .navbar-nav,
-        #mainNav .navbar-collapse.collapsing .navbar-nav {
-            padding-top: 4rem;
-        }
-
-    #mainNav .dropdown-menu {
-        border: none;
-    }
-
-    #mainNav .dropdown-item {
-        font-weight: 200;
-    }
-
-@media (max-width: 991px) {
-    #mainNav {
-        min-height: 3rem;
-    }
-
-    #mainNav .navbar-brand {
-        padding: 0.2rem 0;
-    }
-
-    #mainNav .navbar-toggler {
-        padding: 0rem;
-    }
+#mainNav .navbar-brand {
+    color: #fff;
+    font-weight: 200;
+    letter-spacing: 0.5rem;
+    padding: 0.9rem 0;
+    position: relative;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-@media (min-width: 992px) {
-    #mainNav {
-        padding-top: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-        transition: background 0.3s ease-in-out;
-    }
-
-    /* Ocultar el dropdown en pantallas grandes */
-    #mainNav .dropdown-toggle::after {
-        display: none;
-    }
-
-    #mainNav .dropdown-menu {
-        display: none !important;
-    }
-
-        #mainNav .navbar-collapse.show,
-        #mainNav .navbar-collapse.collapsing {
-            position: static;
-            width: auto;
-            background-color: transparent;
-            padding: 0;
-            box-shadow: none;
-            border-radius: 0;
-        }
-
-        #mainNav .navbar-brand {
-            padding: 0.5rem 0;
-            color: #ffffff;
-        }
-
-        #mainNav .nav-link {
-            transition: none;
-            padding: 2rem 1.5rem;
-            color: #ffffff;
-        }
-
-            #mainNav .nav-link:hover {
-                color: rgba(255, 255, 255, 0.75);
-            }
-
-            #mainNav .nav-link:active {
-                color: #fff;
-            }
-
-        #mainNav.navbar-shrink {
-            background: #fff;
-        }
-
-            #mainNav.navbar-shrink .navbar-brand {
-                color: #000;
-            }
-
-            #mainNav.navbar-shrink .nav-link {
-                color: #000;
-                padding: 1.5rem 1.5rem 1.25rem;
-                border-bottom: 0.25rem solid transparent;
-            }
-
-                #mainNav.navbar-shrink .nav-link:hover {
-                    color: var(--bs-teal);
-                }
-
-                #mainNav.navbar-shrink .nav-link:active {
-                    color: #467370;
-                }
-
-                #mainNav.navbar-shrink .nav-link.active {
-                    color: var(--bs-teal);
-                    outline: none;
-                    border-bottom: 0.25rem solid var(--bs-teal);
-                }
+#mainNav .navbar-brand-icon {
+    height: 2rem;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 50%;
 }
 
+#mainNav .nav-link {
+    color: #fff;
+    font-weight: 200;
+}
+
+#mainNav:not(.navbar-solid):not(.navbar-shrink) .nav-link:hover {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 150%;
+    padding: 0.75rem;
+    color: white;
+    border: 0px solid white;
+    position: relative;
+    z-index: 10000;
+}
+
+#mainNav .navbar-toggler:focus,
+#mainNav .navbar-toggler:active {
+    outline: none;
+    border: 0px solid black;
+    box-shadow: none;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: white;
+    outline: none;
+    background-color: transparent;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+#mainNav .dropdown-menu {
+    border: none;
+}
+
+#mainNav .dropdown-item {
+    font-weight: 200;
+}
+
+/* ============================================
+   NAVBAR - SOLID STATE (No Hero Image)
+   ============================================ */
+#mainNav.navbar-solid {
+    background-color: #fff;
+    background-image: none;
+}
+
+#mainNav.navbar-solid .navbar-brand {
+    color: #000;
+}
+
+#mainNav.navbar-solid .nav-link {
+    color: #000;
+}
+
+#mainNav.navbar-solid .nav-link:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+#mainNav.navbar-solid .navbar-toggler {
+    color: #000;
+}
+
+/* ============================================
+   NAVBAR - SHRINK STATE (After Scroll)
+   ============================================ */
+#mainNav.navbar-shrink {
+    background-color: #fff;
+    background-image: none;
+}
+
+#mainNav.navbar-shrink .navbar-brand {
+    color: #000;
+}
+
+#mainNav.navbar-shrink .nav-link {
+    color: #000;
+}
+
+#mainNav.navbar-shrink .nav-link:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+#mainNav.navbar-shrink .navbar-toggler {
+    color: #000;
+}
+
+/* ============================================
+   NAVBAR - MOBILE MENU (Collapsed)
+   ============================================ */
+#mainNav .navbar-collapse.show,
+#mainNav .navbar-collapse.collapsing {
+    background-color: #fff;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+#mainNav .navbar-collapse.show .navbar-nav,
+#mainNav .navbar-collapse.collapsing .navbar-nav {
+    padding-top: 4rem;
+}
+
+#mainNav .navbar-collapse.show .nav-link,
+#mainNav .navbar-collapse.collapsing .nav-link {
+    color: #000;
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+#mainNav .navbar-collapse.show .nav-link:hover,
+#mainNav .navbar-collapse.collapsing .nav-link:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+#mainNav .navbar-collapse.show .dropdown-item,
+#mainNav .navbar-collapse.collapsing .dropdown-item {
+    color: #000;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+
+/* ============================================
+   BUTTONS
+   ============================================ */
 .btn {
     box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
     padding: 1.25rem 2rem;
@@ -287,6 +274,9 @@ a:hover {
     border: 0;
 }
 
+/* ============================================
+   FOOTER
+   ============================================ */
 .footer {
     padding: 5rem 0;
 }
@@ -299,27 +289,9 @@ footer .btn {
     box-shadow: none !important;
 }
 
-@media (max-width: 768px) {
-    footer .btn {
-        padding: 1.25rem 0rem;
-    }
-}
-
-@media (max-width: 576px) {
-    footer {
-        text-align: center;
-        font-size: 0;
-    }
-
-    footer .btn,
-    footer span {
-        display: block;
-        margin: 0.2rem auto;
-        font-size: 0.8rem;
-        padding: 0;
-    }
-}
-
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
 #toTop {
     position: fixed;
     bottom: 2rem;
@@ -336,4 +308,143 @@ footer .btn {
     opacity: 1;
     visibility: visible;
 }
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+.contact-info {
+    margin-bottom: 0.2rem;
+}
+
+/* ============================================
+   MEDIA QUERIES - MOBILE
+   ============================================ */
+@media (max-width: 576px) {
+    footer {
+        text-align: center;
+        font-size: 0;
+    }
+
+    footer .btn,
+    footer span {
+        display: block;
+        margin: 0.2rem auto;
+        font-size: 0.8rem;
+        padding: 0;
+    }
+
+    #mainNav .navbar-brand {
+        letter-spacing: 0.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .btn {
+        padding: 1.25rem 0rem;
+    }
+}
+
+@media (max-width: 991px) {
+    #mainNav {
+        min-height: 3rem;
+    }
+
+    #mainNav .navbar-brand {
+        padding: 0.2rem 0;
+    }
+
+    #mainNav .navbar-brand-icon {
+        height: 1.6rem;
+    }
+
+    #mainNav .navbar-toggler {
+        padding: 0rem;
+    }
+}
+
+/* ============================================
+   MEDIA QUERIES - DESKTOP
+   ============================================ */
+@media (min-width: 992px) {
+    body.no-hero {
+        padding-top: 4.8rem;
+    }
+
+    #mainNav {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+        transition: background 0.3s ease-in-out;
+    }
+
+    #mainNav .navbar-brand {
+        padding: 0.5rem 0;
+        color: #ffffff;
+    }
+
+    #mainNav .nav-link {
+        transition: none;
+        padding: 2rem 1.5rem;
+        color: #ffffff;
+    }
+
+    #mainNav .nav-link:hover {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    #mainNav .nav-link:active {
+        color: #fff;
+    }
+
+    /* Desktop - Navbar Shrink State */
+    #mainNav.navbar-shrink {
+        background: #fff;
+    }
+
+    #mainNav.navbar-shrink .navbar-brand {
+        color: #000;
+    }
+
+    #mainNav.navbar-shrink .nav-link {
+        color: #000;
+        padding: 1.5rem 1.5rem 1.25rem;
+        border-bottom: 0.25rem solid transparent;
+    }
+
+    #mainNav.navbar-shrink .nav-link:hover {
+        color: var(--bs-teal);
+    }
+
+    #mainNav.navbar-shrink .nav-link:active {
+        color: #467370;
+    }
+
+    #mainNav.navbar-shrink .nav-link.active {
+        color: var(--bs-teal);
+        outline: none;
+        border-bottom: 0.25rem solid var(--bs-teal);
+    }
+
+    /* Desktop - Hide dropdown menu */
+    #mainNav .dropdown-toggle::after {
+        display: none;
+    }
+
+    #mainNav .dropdown-menu {
+        display: none !important;
+    }
+
+    /* Desktop - Collapsed menu behavior */
+    #mainNav .navbar-collapse.show,
+    #mainNav .navbar-collapse.collapsing {
+        position: static;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -13,7 +13,8 @@ public class HomeController : Controller
         {
             Title = "Evaristo Cuesta Fotografía",
             Description = "Evaristo Cuesta Fotógrafo autodidacta de Sevilla que trabaja diferentes campos dcomo retratos, reportajes de boda, reportajes de conciertos, books de moda, paisajes, fotografía nocturna, fotografía urbana y fotografía de autor.",
-            Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla"
+            Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla",
+            HasHeroImage = true
         };
 
         return View(page);
@@ -26,6 +27,17 @@ public class HomeController : Controller
             Title = "Evaristo Cuesta Fotografía - Contacto",
             Description = "Evaristo Cuesta Fotógrafo autodidacta de Sevilla. Página de contacto.",
             Keywords = "fotografía,fotógrafo,evaristo cuesta,fotografías,fotógrafos,fotos,foto,sevilla,contacto"
+        };
+        return View(page);
+    }
+
+    public IActionResult VentaFotografias()
+    {
+        var page = new PageViewModel
+        {
+            Title = "Venta de Fotografías de autor para coleccionistas",
+            Description = "Evaristo Cuesta Fotografía Fotos Venta de Fotografías de autor",
+            Keywords = "fotografía,fotógrafo,evaristo,evaristo cuesta,fotografías,fotografías autor,fotógrafos,fotos,foto,venta,ventas,venta fotografía,venta fotografías,venta fotografía autor"
         };
         return View(page);
     }

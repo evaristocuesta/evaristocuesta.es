@@ -31,5 +31,13 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "Contacto" })
     .WithStaticAssets();
 
+app.MapControllerRoute(
+    name: "venta-fotografias",
+    pattern: "venta-fotografias",
+    defaults: new { controller = "Home", action = "VentaFotografias" })
+    .WithStaticAssets();
+
+
+
 
 app.Run();

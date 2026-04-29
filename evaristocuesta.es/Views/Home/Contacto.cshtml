@@ -1,1 +1,47 @@
-﻿<h1>Contacto</h1>
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Contacto</h1>
+        </div>
+    </div>
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                    <a itemprop="item" href="/" title="Evaristo Cuesta Fotografía fotos fotógrafo"><span itemprop="name">Inicio</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                    <a itemprop="item" href="contacto" title="Contacto Evaristo Cuesta Fotografía Fotógrafo Fotos"><span itemprop="name">Contacto</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row mb-4 align-items-center">
+        <div class="col-lg-5" itemprop="contactPoint" itemscope="" itemtype="https://schema.org/ContactPoint">
+            <h2>Información de contacto</h2>
+            <p>
+                Si quieres ponerte en contacto conmigo puedes hacerlo a través de los siguientes datos:
+            </p>
+            <p>&nbsp;</p>
+            <p itemprop="name" class="contact-info">
+                Evaristo Cuesta
+            </p>
+            <meta itemprop="contactType" content="customer service">
+            <p class="contact-info">
+                <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp;<span itemprop="telephone">+34 637 53 45 61</span>
+            </p>
+            <p class="contact-info">
+                <i class="fa-solid fa-globe"></i>&nbsp;&nbsp;&nbsp;<a itemprop="url" href="https://www.evaristocuesta.es" title="Evaristo Cuesta Fotografía fotos fotógrafo">www.evaristocuesta.es</a>
+            </p>
+            <p class="contact-info">
+                <i class="fa-regular fa-envelope"></i>&nbsp;&nbsp;&nbsp;<span itemprop="email" id="lblEmail">fotos@evaristocuesta.es</span>
+            </p>
+        </div>
+        <div class="col-lg-7">
+            @await Html.PartialAsync("_Carousel")
+        </div>
+    </div>
+    <hr class="mb-4" />
+</div>
