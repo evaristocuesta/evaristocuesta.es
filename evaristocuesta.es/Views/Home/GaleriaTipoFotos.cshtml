@@ -1,9 +1,67 @@
 ﻿@model PhotoGalleryViewModel
 
-<div class="container">
+<div class="container py-5">
     <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-12 text-center mb-4">
             <h1>@Model.H1</h1>
         </div>
     </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                        <a itemprop="item" href="/" title="Evaristo Cuesta Fotografía">
+                            <span itemprop="name">Inicio</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
+                        <a itemprop="item" href="/galeria-fotos" title="Galería de fotos">
+                            <span itemprop="name">Galería</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item active" aria-current="page">
+                        <span itemprop="name">@Model.H1</span>
+                        <meta itemprop="position" content="3">
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="photo-gallery-grid">
+        @for (int i = 0; i < Model.GaleriaItems.Count(); i++)
+        {
+            var item = Model.GaleriaItems.ElementAt(i);
+            <div class="gallery-grid-item" data-index="@i">
+                <img src="@item.Image" alt="@item.Alt" class="gallery-grid-image" loading="lazy" />
+                <div class="gallery-grid-overlay">
+                    <span class="gallery-grid-icon">🔍</span>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" style="display: none;">
+    <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-prev" aria-label="Anterior">‹</button>
+        <button class="lightbox-next" aria-label="Siguiente">›</button>
+        <img id="lightbox-image" src="" alt="" class="lightbox-image" />
+        <div class="lightbox-counter">
+            <span id="lightbox-current">1</span> / <span id="lightbox-total">@Model.GaleriaItems.Count()</span>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const galleryData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GaleriaItems.Select(item => new { item.Image, item.Alt })));
+    </script>
+    <script src="~/js/gallery-lightbox.js"></script>
+}

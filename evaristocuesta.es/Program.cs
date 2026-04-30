@@ -49,5 +49,41 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "paisajes-naturaleza" })
     .WithStaticAssets();
 
+app.MapControllerRoute(
+    name: "fotografia-nocturna",
+    pattern: "fotografia-nocturna",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "fotografia-nocturna" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "paisajes-urbanos",
+    pattern: "paisajes-urbanos",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "paisajes-urbanos" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "retratos-books-moda",
+    pattern: "retratos-books-moda",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "retratos-books-moda" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "reportaje-bodas",
+    pattern: "reportaje-bodas",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "reportaje-bodas" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "conciertos",
+    pattern: "conciertos",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "conciertos" })
+    .WithStaticAssets();
+
+app.MapControllerRoute(
+    name: "reportaje-fotos-embarazadas",
+    pattern: "reportaje-fotos-embarazadas",
+    defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "reportaje-fotos-embarazadas" })
+    .WithStaticAssets();
+
 
 await app.RunAsync();
