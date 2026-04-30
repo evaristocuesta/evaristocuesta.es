@@ -31,7 +31,7 @@
         @foreach (var item in Model.GaleriaItems)
         {
             <a href="@item.Url" class="gallery-item" title="@item.Title">
-                <div class="gallery-image-wrapper">
+                <div class="gallery-image-wrapper ratio ratio-1x1">
                     <img src="~/images/gallery/@item.Image" alt="@item.Alt" class="gallery-image" loading="lazy" />
                     <div class="gallery-overlay">
                         <div class="gallery-content">
