@@ -1,0 +1,156 @@
+﻿<!-- Banner de consentimiento de cookies -->
+<div data-nosnippet id="cookieConsentBanner">
+    <p>
+        Este sitio web utiliza cookies para analizar el tráfico y mejorar tu experiencia. Puedes aceptar todas las cookies, rechazarlas o personalizar tus preferencias. Para más información, consulta nuestra <a href="#" id="btn-cookies"><strong>Política de Cookies</strong></a> y nuestra <a href="#" id="btn-privacy"><strong>Política de Privacidad</strong></a>.
+    </p>
+
+    <!-- Contenedor adicional para alinear los checkboxes -->
+    <div class="cookie-group">
+        <div class="cookie-options">
+            <label for="preferencesCookie" class="custom-switch">
+                <input type="checkbox" id="preferencesCookie" name="preferences" />
+                <span class="switch-slider"></span>
+                <span class="option-text">Preferencias</span>
+            </label>
+        </div>
+        <div class="cookie-options">
+            <label for="statisticalCookie" class="custom-switch">
+                <input type="checkbox" id="statisticalCookie" name="statistical" />
+                <span class="switch-slider"></span>
+                <span class="option-text">Estadísticas</span>
+            </label>
+        </div>
+        <div class="cookie-options">
+            <label for="marketingCookie" class="custom-switch">
+                <input type="checkbox" id="marketingCookie" name="marketing" />
+                <span class="switch-slider"></span>
+                <span class="option-text">Marketing</span>
+            </label>
+        </div>
+    </div>
+
+    <button onclick="setCookieConsent()" class="cookie-button cookie-button-preferences">Guardar preferencias</button>
+    <button onclick="rejectAll()" class="cookie-button">Rechazar todas</button>
+    <button onclick="acceptAll()" class="cookie-button">Aceptar todas</button>
+</div>
+
+<!-- Botón del banner minimizado -->
+<div data-nosnippet id="minimizedConsentBanner">
+    <img alt="Configuración de cookies" src="~/images/cookie-color.svg" />
+</div>
+
+<!-- Política de Privacidad -->
+<div id="popup-privacy" class="popup-overlay">
+    <div class="popup-content">
+        <button class="popup-close">&times;</button>
+        <h2>Política de Privacidad</h2>
+        <div class="popup-body">
+            <p>Última actualización: 11 de abril de 2026</p>
+            <h2 id="introduction">1. Introducción</h2>
+            <p>En <strong>evaristocuesta.es</strong>, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta Política de Privacidad explica cómo recopilamos, utilizamos y protegemos tus datos personales cuando visitas nuestro sitio web.</p>
+            <h2 id="data-controller">2. Responsable del tratamiento</h2>
+            <ul>
+                <li><strong>Nombre del responsable:</strong> Evaristo Cuesta Guzmán</li>
+                <li><strong>Email de contacto:</strong> <a href="mailto:fotos@evaristocuesta.es">fotos@evaristocuesta.es</a></li>
+            </ul>
+            <h2 id="data-we-collect">3. Datos que recopilamos</h2>
+            <p>Nuestro sitio web puede recopilar los siguientes datos personales:</p>
+            <ul>
+                <li>Datos proporcionados voluntariamente a través del correo de contacto.</li>
+                <li>Datos de navegación recopilados mediante cookies analíticas (ver Política de Cookies).</li>
+            </ul>
+            <h2 id="purpose-of-data-processing">4. Finalidad del tratamiento de los datos</h2>
+            <p>Los datos recopilados se utilizan para:</p>
+            <ul>
+                <li>Responder a consultas enviadas a nuestro correo de contacto.</li>
+                <li>Analizar el tráfico del sitio web y mejorar la experiencia del usuario.</li>
+                <li>Cumplir con obligaciones legales.</li>
+            </ul>
+            <h2 id="legal-basis-for-processing">5. Base legal para el tratamiento</h2>
+            <p>Tratamos tus datos personales en base a:</p>
+            <ul>
+                <li>Tu consentimiento explícito al enviarnos un correo.</li>
+                <li>Nuestro interés legítimo en mejorar el sitio web y analizar su tráfico.</li>
+                <li>Obligaciones legales derivadas de la normativa aplicable.</li>
+            </ul>
+            <h2 id="data-recipients">6. Destinatarios de los datos</h2>
+            <p>No compartimos tus datos personales con terceros, excepto en los siguientes casos:</p>
+            <ul>
+                <li>Proveedores de servicios tecnológicos (como Google Analytics para el análisis del tráfico).</li>
+                <li>Autoridades competentes cuando exista una obligación legal.</li>
+            </ul>
+            <h2 id="user-rights">7. Derechos del usuario</h2>
+            <p>Tienes derecho a:</p>
+            <ul>
+                <li>Acceder, rectificar o suprimir tus datos personales.</li>
+                <li>Limitar u oponerte al tratamiento de tus datos.</li>
+                <li>Retirar tu consentimiento en cualquier momento.</li>
+                <li>Presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD).</li>
+            </ul>
+            <p>Para ejercer tus derechos, puedes contactarnos en <a href="mailto:fotos@evaristocuesta.es">fotos@evaristocuesta.es</a>.</p>
+            <h2 id="data-security">8. Seguridad de los datos</h2>
+            <p>Implementamos medidas de seguridad adecuadas para proteger tus datos contra accesos no autorizados, pérdida o alteración.</p>
+            <h2 id="changes-to-this-policy">9. Cambios en esta política</h2>
+            <p>Nos reservamos el derecho de modificar esta Política de Privacidad para reflejar cambios normativos o mejoras del servicio. La versión actualizada estará siempre disponible en esta página.</p>
+            <p>Si tienes alguna pregunta, puedes contactarnos en <a href="mailto:fotos@evaristocuesta.es">fotos@evaristocuesta.es</a>.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Política de Cookies -->
+<div id="popup-cookies" class="popup-overlay">
+    <div class="popup-content">
+        <button class="popup-close">&times;</button>
+        <h2>Política de Cookies</h2>
+        <div class="popup-body">
+            <p>Última actualización: 11 de abril de 2026</p>
+            <h2 id="what-are-cookies">1. ¿Qué son las cookies?</h2>
+            <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Se utilizan para mejorar la experiencia del usuario, analizar el tráfico del sitio y recordar preferencias.</p>
+            <h2 id="what-types-of-cookies-do-we-use">2. ¿Qué tipos de cookies utilizamos?</h2>
+            <p>En <strong>evaristocuesta.es</strong>, solo utilizamos <strong>cookies analíticas</strong>, concretamente de <strong>Google Analytics</strong>. Estas cookies nos ayudan a entender cómo interactúan los visitantes con nuestro sitio web, recopilando información de forma anónima.</p>
+            <h3 id="google-analytics-cookies"><strong>Cookies de Google Analytics</strong></h3>
+            <p>Estas cookies nos permiten recopilar datos como el número de visitantes, las páginas más vistas y el tiempo de permanencia en el sitio. La información recopilada es completamente anónima y no permite identificar personalmente a los usuarios.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Proveedor</th>
+                        <th>Finalidad</th>
+                        <th>Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>Google Analytics</td>
+                        <td>Distinguir usuarios únicos</td>
+                        <td>1 año</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>Google Analytics</td>
+                        <td>Diferenciar sesiones</td>
+                        <td>24 horas</td>
+                    </tr>
+                    <tr>
+                        <td>_gat</td>
+                        <td>Google Analytics</td>
+                        <td>Limitar la tasa de solicitudes</td>
+                        <td>1 minuto</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 id="how-to-manage-cookies">3. ¿Cómo gestionar las cookies?</h2>
+            <p>Puedes aceptar o rechazar las cookies analíticas en el banner de cookies cuando accedes a nuestro sitio web. También puedes configurar tu navegador para bloquear o eliminar cookies en cualquier momento. A continuación, te proporcionamos enlaces para gestionar cookies en los principales navegadores:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/es/kb/Borrar%20cookies" target="_blank">Mozilla Firefox</a></li>
+                <li><a href="https://support.microsoft.com/es-es/help/4027947/microsoft-edge-delete-cookies" target="_blank">Microsoft Edge</a></li>
+                <li><a href="https://support.apple.com/es-es/105082" target="_blank">Safari</a></li>
+            </ul>
+            <h2 id="changes-to-the-cookies-policy">4. Cambios en la Política de Cookies</h2>
+            <p>Podemos actualizar esta política en cualquier momento para reflejar cambios en la legislación o en el uso de cookies. Te recomendamos revisarla periódicamente.</p>
+            <p>Si tienes dudas sobre nuestra Política de Cookies, puedes contactarnos en <a href="mailto:fotos@evaristocuesta.es"><strong>fotos@evaristocuesta.es</strong></a>.</p>
+        </div>
+    </div>
+</div>
