@@ -51,10 +51,10 @@ public class HomeController : Controller
             new GalleryItem() { Image = "paisajes-naturaleza.jpg", Title = "Paisajes de Naturaleza", Url = "paisajes-naturaleza", Alt = "Fotografía de naturaleza y paisajes" },
             new GalleryItem() { Image = "fotografia-nocturna.jpg", Title = "Fotografía Nocturna", Url = "fotografia-nocturna", Alt = "Fotografía nocturna larga exposición" },
             new GalleryItem() { Image = "fotografia-urbana.jpg", Title = "Fotografía Urbana", Url = "paisajes-urbanos", Alt = "Fotografía urbana y paisajes urbanos" },
-            new GalleryItem() { Image = "retratos-books.jpg", Title = "Retratos y Books", Url = "retratos-books-moda", Alt = "Retratos books moda fotografía" },
-            new GalleryItem() { Image = "reportaje-boda.jpg", Title = "Reportajes de Boda", Url = "reportaje-bodas", Alt = "Reportajes de boda fotografía" },
-            new GalleryItem() { Image = "fotografia-conciertos.jpg", Title = "Reportajes de Conciertos", Url = "conciertos", Alt = "Fotografía de conciertos música" },
-            new GalleryItem() { Image = "reportaje-embarazadas.jpg", Title = "Reportajes de Embarazos", Url = "reportaje-fotos-embarazadas", Alt = "Reportaje embarazadas fotografía" }
+            new GalleryItem() { Image = "retratos-books.jpg", Title = "Retratos y Books", Url = "retratos-books-moda", Alt = "Fotógrafo Retratos books moda fotografía en Sevilla" },
+            new GalleryItem() { Image = "reportaje-boda.jpg", Title = "Reportajes de Boda", Url = "reportaje-bodas", Alt = "Reportajes de boda fotografía en Sevilla" },
+            new GalleryItem() { Image = "fotografia-conciertos.jpg", Title = "Reportajes de Conciertos", Url = "conciertos", Alt = "Fotografía de conciertos música en Sevilla" },
+            new GalleryItem() { Image = "reportaje-embarazadas.jpg", Title = "Reportajes de Embarazos", Url = "reportaje-fotos-embarazadas", Alt = "Reportaje embarazadas fotografía en Sevilla" }
         };
 
         var page = new PhotoGalleryViewModel
