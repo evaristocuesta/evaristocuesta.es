@@ -67,6 +67,7 @@
         const currentImage = galleryData[currentIndex];
         lightboxImage.src = currentImage.Image;
         lightboxImage.alt = currentImage.Alt;
+        lightboxImage.title = currentImage.Title;
         lightboxCurrent.textContent = currentIndex + 1;
     }
 

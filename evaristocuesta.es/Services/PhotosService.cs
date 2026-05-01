@@ -10,11 +10,11 @@ public class PhotosService
         string file = $"wwwroot/images/fotos-{gallery}/data.json";
         string jsonString = File.ReadAllText(file);
         var photoGallery = JsonSerializer.Deserialize<PhotoGalleryViewModel>(jsonString)!;
-        photoGallery.GaleriaItems = GetPhotos(gallery);
+        photoGallery.GaleriaItems = GetPhotos(gallery, photoGallery.Title, photoGallery.H1);
         return photoGallery;
     }
 
-    public IEnumerable<GalleryItem> GetPhotos(string gallery)
+    public IEnumerable<GalleryItem> GetPhotos(string gallery, string title, string alt)
     {
         string path = $"wwwroot/images/fotos-{gallery}/";
 
@@ -22,8 +22,8 @@ public class PhotosService
             .Select(file => new GalleryItem
             {
                     Image = $"/images/fotos-{gallery}/{Path.GetFileName(file)}",
-                    Title = Path.GetFileNameWithoutExtension(file),
-                    Alt = Path.GetFileNameWithoutExtension(file)
+                    Title = title,
+                    Alt = alt
                 }
             )
             .ToList();

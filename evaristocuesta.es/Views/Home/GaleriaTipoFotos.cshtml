@@ -37,7 +37,7 @@
         {
             var item = Model.GaleriaItems.ElementAt(i);
             <div class="gallery-grid-item" data-index="@i">
-                <img src="@item.Image" alt="@item.Alt" class="gallery-grid-image" loading="lazy" />
+                <img src="@item.Image" alt="@item.Alt" title="@item.Title" class="gallery-grid-image" loading="lazy" />
                 <div class="gallery-grid-overlay">
                     <span class="gallery-grid-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                 </div>
@@ -61,7 +61,7 @@
 
 @section Scripts {
     <script>
-        const galleryData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GaleriaItems.Select(item => new { item.Image, item.Alt })));
+        const galleryData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GaleriaItems.Select(item => new { item.Image, item.Alt, item.Title })));
     </script>
     <script src="~/js/gallery-lightbox.js"></script>
 }
