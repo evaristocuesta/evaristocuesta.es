@@ -33,35 +33,17 @@
     </div>
 
     <div class="photo-gallery-grid">
-        @for (int i = 0; i < Model.GaleriaItems.Count(); i++)
+        @foreach (var item in Model.GaleriaItems)
         {
-            var item = Model.GaleriaItems.ElementAt(i);
-            <div class="gallery-grid-item" data-index="@i">
+            <a data-gallery="@Model.GalleryId" 
+               href="@item.Image" 
+               title="@item.Title"
+               class="gallery-grid-item">
                 <img src="@item.Image" alt="@item.Alt" title="@item.Title" class="gallery-grid-image" loading="lazy" />
                 <div class="gallery-grid-overlay">
                     <span class="gallery-grid-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                 </div>
-            </div>
+            </a>
         }
     </div>
 </div>
-
-<!-- Lightbox Modal -->
-<div id="lightbox" class="lightbox" style="display: none;">
-    <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Cerrar">&times;</button>
-        <button class="lightbox-prev" aria-label="Anterior">‹</button>
-        <button class="lightbox-next" aria-label="Siguiente">›</button>
-        <img id="lightbox-image" src="" alt="" class="lightbox-image" />
-        <div class="lightbox-counter">
-            <span id="lightbox-current">1</span> / <span id="lightbox-total">@Model.GaleriaItems.Count()</span>
-        </div>
-    </div>
-</div>
-
-@section Scripts {
-    <script>
-        const galleryData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.GaleriaItems.Select(item => new { item.Image, item.Alt, item.Title })));
-    </script>
-    <script src="~/js/gallery-lightbox.js"></script>
-}

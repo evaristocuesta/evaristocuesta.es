@@ -10,6 +10,7 @@ public class PhotosService
         string file = $"wwwroot/images/fotos-{gallery}/data.json";
         string jsonString = File.ReadAllText(file);
         var photoGallery = JsonSerializer.Deserialize<PhotoGalleryViewModel>(jsonString)!;
+        photoGallery.GalleryId = gallery;
         photoGallery.GaleriaItems = GetPhotos(gallery, photoGallery.Title, photoGallery.H1);
         return photoGallery;
     }

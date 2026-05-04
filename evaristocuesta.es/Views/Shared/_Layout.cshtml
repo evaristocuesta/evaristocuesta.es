@@ -64,12 +64,29 @@
         </main>
     </div>
     @await Html.PartialAsync("_Footer")
+
+    <!-- Lightbox Modal (Global) -->
+    <div id="lightbox" class="lightbox" style="display: none;">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+            <button class="lightbox-prev" aria-label="Anterior">‹</button>
+            <button class="lightbox-next" aria-label="Siguiente">›</button>
+            <img id="lightbox-image" src="" alt="" class="lightbox-image" />
+            <div class="lightbox-title" id="lightbox-title"></div>
+            <div class="lightbox-counter">
+                <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/site.js"></script>
     <script src="js/banner-cookies.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <!-- Gallery Lightbox JS (loaded after Scripts section to ensure galleryData is available) -->
+    <script src="js/gallery-lightbox.js"></script>
     @await Html.PartialAsync("_CookiesBanner")
 </body>
 </html>
