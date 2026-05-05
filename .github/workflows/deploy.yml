@@ -32,20 +32,17 @@ jobs:
       
     - name: Build
       run: dotnet build --no-restore --configuration Release
-      working-directory: ./evaristocuesta.es
 
     - name: Publish
       run: dotnet publish --no-restore --configuration Release --output ./bin/publish
-      working-directory: ./evaristocuesta.es
 
     - name: Show publish output
       run: ls -laR ./bin/publish || true
-      working-directory: ./evaristocuesta.es
 
     - name: Generate pages
       # Run the published app from the publish folder so the content root matches the published files
       run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web evaristocuesta.es
-      working-directory: ./evaristocuesta.es/bin/publish
+      working-directory: ./bin/publish
 
     - name: Show generated files 
       run: ls -laR ${{ github.workspace }}/web || true
