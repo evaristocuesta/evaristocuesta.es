@@ -41,7 +41,7 @@ jobs:
 
     - name: Generate pages
       # Run the published app from the publish folder so the content root matches the published files
-      run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web evaristocuesta.es
+      run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web evaristocuesta.es/
       working-directory: ./bin/publish
 
     - name: Show generated files 
