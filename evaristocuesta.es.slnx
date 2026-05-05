@@ -1,3 +1,9 @@
 <Solution>
-  <Project Path="evaristocuesta.es/evaristocuesta.es.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/evaristocuesta.es/evaristocuesta.es.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <File Path="tests/run-tests.bat" />
+    <Project Path="tests/evaristocuesta.es.tests/evaristocuesta.es.tests.csproj" Id="b47b54ec-e02e-4e9e-a18c-2dff414b9a43" />
+  </Folder>
 </Solution>

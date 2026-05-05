@@ -2,7 +2,7 @@
 echo ========================================
 echo   Instalando dependencias de npm...
 echo ========================================
-cd evaristocuesta.es
+cd ../src/evaristocuesta.es
 call npm install
 
 echo.
