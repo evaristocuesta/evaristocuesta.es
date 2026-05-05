@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:    
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write    
+
+jobs:
+  ci-build:
+
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ./evaristocuesta.es
+      
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+      working-directory: ./evaristocuesta.es
+
+    - name: Publish
+      run: dotnet publish --no-restore --configuration Release --output ./bin/publish
+      working-directory: ./evaristocuesta.es
+
+    - name: Show publish output
+      run: ls -laR ./bin/publish || true
+      working-directory: ./evaristocuesta.es
+
+    - name: Generate pages
+      # Run the published app from the publish folder so the content root matches the published files
+      run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web evaristocuesta.es
+      working-directory: ./evaristocuesta.es/bin/publish
+
+    - name: Show generated files 
+      run: ls -laR ${{ github.workspace }}/web || true
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'web'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4      
