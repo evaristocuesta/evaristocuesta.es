@@ -485,11 +485,12 @@ footer .btn:active {
 
 .lightbox-content {
     position: relative;
-    max-width: 90%;
+    max-width: 85%;
     max-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2.5rem;
 }
 
 .lightbox-image {
@@ -505,8 +506,9 @@ footer .btn:active {
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
+    width: 75%;
     color: white;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     background: rgba(0, 0, 0, 0.7);
     padding: 10px 20px;
     border-radius: 4px;
@@ -575,7 +577,7 @@ footer .btn:active {
 
 .lightbox-counter {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -590,9 +592,7 @@ footer .btn:active {
 @media (max-width: 768px) {
     .lightbox-title {
         top: 10px;
-        font-size: 1rem;
         padding: 8px 12px;
-        max-width: 70%;
     }
 
     .lightbox-close {
