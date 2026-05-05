@@ -29,7 +29,6 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./evaristocuesta.es
       
     - name: Build
       run: dotnet build --no-restore --configuration Release
