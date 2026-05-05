@@ -12,13 +12,13 @@
             <nav aria-label="breadcrumb">
                 <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
-                        <a itemprop="item" href="/" title="Evaristo Cuesta Fotografía">
+                        <a itemprop="item" href="~/" title="Evaristo Cuesta Fotografía">
                             <span itemprop="name">Inicio</span>
                         </a>
                         <meta itemprop="position" content="1">
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
-                        <a itemprop="item" href="/galeria-fotos" title="Galería de fotos">
+                        <a itemprop="item" href="~/galeria-fotos" title="Galería de fotos">
                             <span itemprop="name">Galería</span>
                         </a>
                         <meta itemprop="position" content="2">
@@ -36,10 +36,10 @@
         @foreach (var item in Model.GaleriaItems)
         {
             <a data-gallery="@Model.GalleryId" 
-               href="@item.Image" 
-               title="@item.Title"
-               class="gallery-grid-item">
-                <img src="@item.Image" alt="@item.Alt" title="@item.Title" class="gallery-grid-image" loading="lazy" />
+                href="@Url.Content(@item.Image)"
+                title="@item.Title"
+                class="gallery-grid-item">
+                <img src="@Url.Content(@item.Image)" alt="@item.Alt" title="@item.Title" class="gallery-grid-image" loading="lazy" />
                 <div class="gallery-grid-overlay">
                     <span class="gallery-grid-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                 </div>

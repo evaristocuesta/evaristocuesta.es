@@ -1,7 +1,23 @@
+using AspNetStatic;
+using evaristocuesta.es.Extensions;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var outputPath = args.Length >= 2 ? $"{args[1]}" : string.Empty;
+var basePath = args.Length == 3 ? $"/{args[2]}" : string.Empty;
+
+if (args.HasSsgArg())
+{
+    builder.Services.AddSingleton<IStaticResourcesInfoProvider>(new StaticResourcesInfoProvider());
+}
+
+StaticWebAssetsLoader.UseStaticWebAssets(
+    builder.Environment,
+    builder.Configuration);
 
 var app = builder.Build();
 
@@ -14,6 +30,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UsePathBase(basePath);
 app.UseRouting();
 
 app.UseAuthorization();
@@ -21,8 +38,9 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    name: "/",
+    pattern: "/",
+    defaults: new { controller = "Home", action = "Index" })
     .WithStaticAssets();
 
 app.MapControllerRoute(
@@ -85,5 +103,10 @@ app.MapControllerRoute(
     defaults: new { controller = "Home", action = "GaleriaTipoFotos", gallery = "reportaje-fotos-embarazadas" })
     .WithStaticAssets();
 
+if (args.HasSsgArg())
+{
+    app.ConfigureAspNetStatic(basePath, outputPath);
+    app.GenerateStaticContent(outputPath);
+}
 
 await app.RunAsync();

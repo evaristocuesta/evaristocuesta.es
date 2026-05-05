@@ -22,7 +22,7 @@ public class PhotosService
         return Directory.GetFiles(path, "*.jpg")
             .Select(file => new GalleryItem
             {
-                    Image = $"/images/fotos-{gallery}/{Path.GetFileName(file)}",
+                    Image = $"~/images/fotos-{gallery}/{Path.GetFileName(file)}",
                     Title = title,
                     Alt = alt
                 }

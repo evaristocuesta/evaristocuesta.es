@@ -13,13 +13,13 @@
             <nav aria-label="breadcrumb">
                 <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item">
-                        <a itemprop="item" href="/" title="Evaristo Cuesta Fotografía fotos fotógrafo">
+                        <a itemprop="item" href="~/" title="Evaristo Cuesta Fotografía fotos fotógrafo">
                             <span itemprop="name">Inicio</span>
                         </a>
                         <meta itemprop="position" content="1">
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumb-item active" aria-current="page">
-                        <a itemprop="item" href="galeria-fotos" title="Galería de fotos Evaristo Cuesta"><span itemprop="name">Galería de fotos</span></a>
+                        <a itemprop="item" href="~/galeria-fotos" title="Galería de fotos Evaristo Cuesta"><span itemprop="name">Galería de fotos</span></a>
                         <meta itemprop="position" content="2">
                     </li>
                 </ol>
@@ -30,9 +30,9 @@
     <div class="photo-gallery">
         @foreach (var item in Model.GaleriaItems)
         {
-            <a href="@item.Url" class="gallery-item" title="@item.Title">
+            <a href="~/@item.Url" class="gallery-item" title="@item.Title">
                 <div class="gallery-image-wrapper ratio ratio-1x1">
-                    <img src="~/images/gallery/@item.Image" alt="@item.Alt" class="gallery-image" loading="lazy" />
+                    <img src="@Url.Content($"~/images/gallery/{@item.Image}")" alt="@item.Alt" class="gallery-image" loading="lazy" />
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <h2 class="gallery-title">@item.Title</h2>

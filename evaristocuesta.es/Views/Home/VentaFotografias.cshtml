@@ -8,11 +8,11 @@
         <nav aria-label="breadcrumb">
             <ol itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
                 <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="breadcrumb-item">
-                    <a itemprop="item" href="/" title="Evaristo Cuesta Fotografía fotos fotógrafo"><span itemprop="name">Inicio</span></a>
+                    <a itemprop="item" href="~/" title="Evaristo Cuesta Fotografía fotos fotógrafo"><span itemprop="name">Inicio</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="breadcrumb-item">
-                    <a itemprop="item" href="venta-fotografias" title="Fotografía de autor"><span itemprop="name">Venta de Fotos de Autor</span></a>
+                    <a itemprop="item" href="~/venta-fotografias" title="Fotografía de autor"><span itemprop="name">Venta de Fotos de Autor</span></a>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -30,8 +30,8 @@
             <p>Las copias de las fotos en venta son una <strong>edición limitada de 20 copias</strong>, firmadas y numeradas por el autor, ideales para coleccionistas, decoradores o particulares.</p>
             <p>Fotografías reveladas con<strong> papel fotográfico brillo o mate profesional</strong>.</p>
             <p>Las copias se <strong>entregarán en tubo</strong> con los <strong>gastos de transportes incluidos para la península</strong>. Para otros tamaños, montajes o tipo de papel como lienzo sobre bastidor, etc... consultar disponibilidad y precios. </p>
-            <p>Más fotos a la venta en <a href="https://www.flickr.com/photos/evaristocg" target="_blank"><img class="flickr-logo" src="images/flickr-logo.png" alt="flickr"></a></p>
-            <p><strong><a href="contacto" title="Contacto Evaristo Cuesta Fotografía">Contacto</a></strong></p>
+            <p>Más fotos a la venta en <a href="https://www.flickr.com/photos/evaristocg" class="flickr-logo" target="_blank"><img src="@Url.Content("~/images/flickr-logo.png")" alt="flickr"></a></p>
+            <p><strong><a href="~/contacto" title="Contacto Evaristo Cuesta Fotografía">Contacto</a></strong></p>
         </div>
         <div class="col-lg-7">
             @await Html.PartialAsync("_Carousel")
