@@ -64,7 +64,7 @@ public static class AspNetStaticExtensions
 
         foreach (var route in routeEndpoints)
         {
-            staticResourcesProvider.Add(new PageResource("/".Equals(route.Route) ? $"{basePath}" : $"{basePath}/{route.Route}"));
+            staticResourcesProvider.Add(new PageResource($"{basePath}{route.Route}"));
         }
     }
 
