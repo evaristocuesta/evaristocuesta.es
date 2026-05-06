@@ -64,7 +64,7 @@ public static class AspNetStaticExtensions
 
         foreach (var route in routeEndpoints)
         {
-            staticResourcesProvider.Add(new PageResource("/".Equals(route.Route) ? $"{basePath}" : $"{basePath?.Replace("/", "")}/{route.Route}"));
+            staticResourcesProvider.Add(new PageResource("/".Equals(route.Route) ? $"{basePath}" : $"{basePath}/{route.Route}"));
         }
     }
 
@@ -74,7 +74,7 @@ public static class AspNetStaticExtensions
 
         foreach (var file in Directory.GetFiles("wwwroot/", "*.*", SearchOption.AllDirectories))
         {
-            var resource = ResourceFactory.CreateResource($"{basePath.Replace("/", "")}{file.Replace("wwwroot", "").Replace(Path.DirectorySeparatorChar, '/')}");
+            var resource = ResourceFactory.CreateResource($"{basePath}{file.Replace("wwwroot", "").Replace(Path.DirectorySeparatorChar, '/')}");
 
             switch (resource)
             {
