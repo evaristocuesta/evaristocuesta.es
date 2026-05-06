@@ -200,10 +200,10 @@ function cleanupCookies(consentValues) {
         'Statistical': [
             // Google Analytics cookies
             '_ga',
-            '_ga_' + 'G-WF4VGXW0YR'.split('-')[1],
+            '_ga_' + 'G-DB74KXKXF1'.split('-')[1],
             '_gid',
             '_gat',
-            '_gat_gtag_' + 'G-WF4VGXW0YR'.replace(/-/g, '_'),
+            '_gat_gtag_' + 'G-DB74KXKXF1'.replace(/-/g, '_'),
         ],
         'Marketing': [
             // Marketing/advertising cookies
