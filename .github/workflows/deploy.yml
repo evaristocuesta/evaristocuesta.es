@@ -1,4 +1,4 @@
-name: CI
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,20 +29,24 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: ./src/evaristocuesta.es
       
     - name: Build
       run: dotnet build --no-restore --configuration Release
+      working-directory: ./src/evaristocuesta.es
 
     - name: Publish
       run: dotnet publish --no-restore --configuration Release --output ./bin/publish
+      working-directory: ./src/evaristocuesta.es
 
     - name: Show publish output
       run: ls -laR ./bin/publish || true
+      working-directory: ./src/evaristocuesta.es
 
     - name: Generate pages
       # Run the published app from the publish folder so the content root matches the published files
-      run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web evaristocuesta.es
-      working-directory: ./bin/publish
+      run: dotnet evaristocuesta.es.dll ssg ${{ github.workspace }}/web
+      working-directory: ./src/evaristocuesta.es/bin/publish
 
     - name: Show generated files 
       run: ls -laR ${{ github.workspace }}/web || true
@@ -55,3 +59,16 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4      
+
+    # - name: Restore tests dependencies
+    #   run: dotnet restore
+    #   working-directory: ./tests/evaristocuesta.es.tests
+    # - name: Build Tests
+    #   run: dotnet build --no-restore --configuration Release
+    #   working-directory: ./tests/evaristocuesta.es.tests
+    # - name: Ensure browsers are installed
+    #   run: pwsh bin/Release/net10.0/playwright.ps1 install --with-deps
+    #   working-directory: ./tests/evaristocuesta.es.tests
+    # - name: Tests
+    #   run: dotnet test --verbosity normal --configuration Release --settings production.runsettings
+    #   working-directory: ./tests/evaristocuesta.es.tests      
